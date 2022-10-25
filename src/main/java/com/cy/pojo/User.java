@@ -6,7 +6,7 @@ public class User {
     private String user_password;
     private String user_gender;
     private String user_mail;
-    private Integer user_fans;
+    private Integer user_fans=0;
 
     public User(){}
 
