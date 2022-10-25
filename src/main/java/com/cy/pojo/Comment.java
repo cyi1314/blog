@@ -47,5 +47,4 @@ public class Comment {
         this.comment_content = comment_content;
     }
 
-    public void get_test(){}
 }
