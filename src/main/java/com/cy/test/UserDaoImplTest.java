@@ -16,4 +16,34 @@ public class UserDaoImplTest {
             System.out.println("用户名已存在！");
         }
     }
+
+    @Test
+    void queryUserByUsernameAndPassword() {
+        if(userDao.queryUserByUsernameAndPassword("cy","86363145")==null){
+            System.out.println("用户名或密码错误，登录失败！");
+        }else {
+            System.out.println("查询成功！");
+        }
+    }
+
+    @Test
+    void saveUser() {
+        System.out.println(userDao.saveUser(new User(null,"zj","1335","male","123@163.com",null)));
+    }
+
+    @Test
+    void queryUsers(){
+        for (User queryUser : userDao.queryUsers()) {
+            System.out.println(queryUser);
+        }
+    }
+
+    @Test
+    void queryUserByUserId(){
+        if(userDao.queryUserByUserId(1)==null){
+            System.out.println("用户ID可用");
+        }else {
+            System.out.println("用户ID已存在");
+        }
+    }
 }
