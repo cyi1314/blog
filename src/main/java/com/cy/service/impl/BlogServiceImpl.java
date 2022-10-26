@@ -44,4 +44,9 @@ public class BlogServiceImpl implements BlogService{
             return true;
         }
     }
+
+    @Override
+    public List<Blog> queryBlogsBySec(String blog_section) {
+        return blogdao.queryBlogsByBlogSec(blog_section);
+    }
 }

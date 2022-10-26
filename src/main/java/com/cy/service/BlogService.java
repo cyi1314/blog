@@ -17,4 +17,6 @@ public interface BlogService {
     public List<Blog> queryBlogs();
 
     public boolean exitBlog(Integer blog_id);
+
+    public List<Blog> queryBlogsBySec(String blog_section);
 }

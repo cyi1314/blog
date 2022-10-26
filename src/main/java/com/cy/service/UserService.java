@@ -21,10 +21,10 @@ public interface UserService {
 
     /**
      * 检查用户是否可用
-     * @param username
+     * @param user_name
      * @return 返回true表示用户名已存在，返回false表示用户名可用
      */
-    public boolean existUsername(String username);
+    public boolean existUsername(String user_name);
 
     /**
      * 检查用户ID是否可用

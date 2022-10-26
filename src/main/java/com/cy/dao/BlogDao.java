@@ -20,4 +20,6 @@ public interface BlogDao {
     public Blog queryBlogbyBlogId(Integer blog_id);
 
     public List<Blog> queryBlogs();
+
+    public List<Blog> queryBlogsByBlogSec(String blog_section);
 }
