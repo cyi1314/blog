@@ -4,4 +4,15 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <!--配置servlet-->
+  <servlet>
+    <servlet-name>blogServlet</servlet-name>
+    <servlet-class>com.cy.servlet.blogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>blogServlet</servlet-name>
+    <url-pattern>/blogservlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>
