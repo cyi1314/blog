@@ -35,4 +35,6 @@ public interface UserService {
 
     public List<User> queryUsers();
 
+    public  void deleteUserById(Integer user_id);
+
 }

@@ -31,4 +31,6 @@ public interface UserDao {
     public List<User> queryUsers();
 
     public User queryUserByUserId(Integer user_id);
+
+    public  int deleteUserById(Integer user_id);
 }
