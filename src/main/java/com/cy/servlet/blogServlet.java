@@ -1,4 +1,4 @@
 package com.cy.servlet;
 
-public class UserServlet {
+public class blogServlet {
 }
