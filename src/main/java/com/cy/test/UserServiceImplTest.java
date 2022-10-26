@@ -44,4 +44,8 @@ public class UserServiceImplTest {
         }
     }
 
+    @Test
+    void deleteUserById(){
+        userService.deleteUserById(5);
+    }
 }

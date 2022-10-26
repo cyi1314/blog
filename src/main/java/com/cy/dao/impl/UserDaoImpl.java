@@ -44,4 +44,11 @@ public class UserDaoImpl extends BaseDao implements UserDao{
                 "`user_mail`,`user_fans`from user where user_id=? ";
         return queryForOne(User.class,sql,user_id);
     }
+
+    @Override
+    public int deleteUserById(Integer user_id) {
+        String sql =  "delete from user where user_id=?";
+        return update(sql,user_id);
+    }
+
 }

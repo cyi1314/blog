@@ -28,7 +28,7 @@ public class UserDaoImplTest {
 
     @Test
     void saveUser() {
-        System.out.println(userDao.saveUser(new User(null,"zj","1335","male","123@163.com",null)));
+        System.out.println(userDao.saveUser(new User(null,"dc","8744","female","12356@163.com",0)));
     }
 
     @Test
@@ -45,5 +45,9 @@ public class UserDaoImplTest {
         }else {
             System.out.println("用户ID已存在");
         }
+    }
+    @Test
+    void deleteUserById(){
+        userDao.deleteUserById(6);
     }
 }
