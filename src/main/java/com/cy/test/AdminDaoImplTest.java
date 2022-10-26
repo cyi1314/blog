@@ -6,12 +6,13 @@ import com.cy.dao.impl.AdminDaoImpl;
 import com.cy.dao.impl.UserDaoImpl;
 import com.cy.pojo.Admin;
 import com.cy.pojo.User;
+import org.junit.jupiter.api.Test;
 
 public class AdminDaoImplTest {
 
     AdminDao adminDao = new AdminDaoImpl();
 
-    @org.junit.Test
+    @Test
     public void queryAdminByAdminname() {
         if(adminDao.queryAdminByAdminname("jzh")==null){
             System.out.println("管理员名可用！");
@@ -20,7 +21,7 @@ public class AdminDaoImplTest {
         }
     }
 
-    @org.junit.Test
+    @Test
     public void queryAdminByAdminnameAndPassword() {
         if(adminDao.queryAdminByAdminnameAndPassword("zj","1335")==null){
             System.out.println("管理员名或密码错误，登录失败！");
@@ -29,19 +30,19 @@ public class AdminDaoImplTest {
         }
     }
 
-    @org.junit.Test
+    @Test
     public void saveAdmin() {
         System.out.println(adminDao.saveAdmin(new Admin(null,"zj","1335")));
     }
 
-    @org.junit.Test
+    @Test
     public void queryAdmins() {
         for (Admin queryAdmin : adminDao.queryAdmins()) {
             System.out.println(queryAdmin);
         }
     }
 
-    @org.junit.Test
+    @Test
     public void queryAdminByAdminId() {
         if(adminDao.queryAdminByAdminId(1)==null){
             System.out.println("管理员ID可用");

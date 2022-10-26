@@ -4,7 +4,7 @@ import com.cy.pojo.Admin;
 import com.cy.pojo.User;
 import com.cy.service.AdminService;
 import com.cy.service.impl.AdminServiceImpl;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AdminServiceImplTest {
 
@@ -17,7 +17,7 @@ public class AdminServiceImplTest {
 
     @Test
     public void login() {
-        Admin admin =new Admin(null,"jzh2","666");
+        Admin admin =new Admin(null,"jzh1","666");
         System.out.println("id:"+adminService.login(admin).getAdmin_id()+" name:"+adminService.login(admin).getAdmin_name());
     }
 
