@@ -33,11 +33,21 @@ public class loginServlet extends HttpServlet {
         if(loginUser==null){
             //失败，则返回登录页面
             System.out.println("用户名或密码错误，登录失败！");
-            req.getRequestDispatcher("/index.jsp").forward(req,resp);
+
+            resp.setContentType("text/html;charset=utf-8");
+            resp.getWriter().print("<script language='javascript'>alert('用户名或密码错误，登录失败！');" +
+                    "window.location.href='/index.jsp';</script>");
+
+            //req.getRequestDispatcher("/index.jsp").forward(req,resp);
         }else {
             //成功，则跳转到成功页面login_success.jsp
             System.out.println("登录成功");
-            req.getRequestDispatcher("/pages/home/home.jsp").forward(req,resp);
+
+            resp.setContentType("text/html;charset=utf-8");
+            resp.getWriter().print("<script language='javascript'>alert('登录成功！');" +
+                    "window.location.href='/pages/home/home.jsp';</script>");
+
+            //req.getRequestDispatcher("/pages/home/home.jsp").forward(req,resp);
         }
 
     }

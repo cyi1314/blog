@@ -16,7 +16,7 @@
 <h1 align="center">管理员登录！</h1><br>
 <h3 align="center">(无效登录无法跳转，页面会重新加载)</h3>
 
-<form action="loginServlet", method="post" >
+<form action="adminServlet", method="post" >
     <table align="center" >
 
         <tr>
