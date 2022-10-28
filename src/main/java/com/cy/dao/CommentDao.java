@@ -15,4 +15,6 @@ public interface CommentDao {
     public  Comment queryCommentById(Integer comment_id);
 
     public List<Comment> queryComments();
+
+    public  List<Comment> queryCommentByBlogId(Integer blog_id);
 }

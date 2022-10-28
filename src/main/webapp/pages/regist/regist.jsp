@@ -13,7 +13,7 @@
     <base href="http://localhost:8081/">
 </head>
 <body>
-<h1 align="center">企业论坛注册</h1> <br>
+<h1 align="center">高校学生博客注册</h1> <br>
 
 <h3 align="center">(无效注册无法跳转，页面会重新加载)</h3>
 <form action="registServlet", method="post" >

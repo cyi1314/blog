@@ -5,6 +5,8 @@ import com.cy.service.CommentService;
 import com.cy.service.impl.CommentServiceImpl;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class CommentServiceImplTest {
 
     private CommentService commentService = new CommentServiceImpl();
@@ -29,4 +31,11 @@ public class CommentServiceImplTest {
         for(Comment queryComment:commentService.queryComments())
             System.out.println(queryComment);
     }
+
+    @Test
+    void queryCommentByBlogId(){
+        List<Comment> commentByBlogId = commentService.queryCommentByBlogId(2);
+        System.out.println(commentByBlogId);
+    }
+
 }

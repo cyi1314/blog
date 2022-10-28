@@ -29,4 +29,10 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> queryComments() {
         return commentDao.queryComments();
     }
+
+
+    @Override
+    public List<Comment> queryCommentByBlogId(Integer blog_id) {
+        return commentDao.queryCommentByBlogId(blog_id);
+    }
 }

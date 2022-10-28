@@ -43,6 +43,7 @@ public class blogServlet extends HttpServlet{
     }
 
     protected void add(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        System.out.println("经过add！");
         //1、获取请求的参数
         String blog_id = req.getParameter("blog_id");
         String user_id = req.getParameter("user_id");
@@ -53,7 +54,12 @@ public class blogServlet extends HttpServlet{
             //帖子存在
             //跳转回发布界面
             System.out.println("博客已存在！！！");
-            req.getRequestDispatcher("/pages/blog/blog_add.jsp").forward(req,resp);
+            resp.setContentType("text/html;charset=utf-8");
+            resp.getWriter().print("<script language='javascript'>alert('博客已存在！');" +
+                    "window.location.href='/pages/blog/addBlog.jsp';</script>");
+
+            //req.getRequestDispatcher("/pages/blog/blog_add.jsp").forward(req,resp);
+
         }else{
             //可以发布
             System.out.println("进入addBolg");
@@ -63,26 +69,6 @@ public class blogServlet extends HttpServlet{
             resp.sendRedirect(req.getContextPath()+"/blogServlet?action=list");
         }
     }
-
-    protected void list(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
-        System.out.println("经过list");
-        //1、通过blogService查询全部帖子
-        List<Blog> blogs = blogService.queryBlogs();
-        //2、把全部帖子保存到request域中
-        req.setAttribute("blogs",blogs);
-        //3、请求转发到post_info.jsp页面
-        req.getRequestDispatcher("/pages/blog/blog.jsp").forward(req,resp);
-    }
-
-    protected  void delete(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
-        //1、获取请求的博客ID
-        String blog_id = req.getParameter("blog_id");
-        //2/调用blogService()方法
-        blogService.deleteBlog((Integer.valueOf(blog_id)));
-        //重定向
-        resp.sendRedirect(req.getContextPath()+"/blogServlet?action=list");
-    }
-
     protected  void update(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
         //1、获取请求的参数
         String blog_id = req.getParameter("blog_id");
@@ -98,7 +84,71 @@ public class blogServlet extends HttpServlet{
             resp.sendRedirect(req.getContextPath()+"/blogServlet?action=list");
         }else{
             System.out.println("博客不存在！！！");
-            req.getRequestDispatcher("pages/blog/blog_update.jsp").forward(req,resp);
+
+            resp.setContentType("text/html;charset=utf-8");
+            resp.getWriter().print("<script language='javascript'>alert('博客不存在！');" +
+                    "window.location.href='/pages/blog/updateBlog.jsp';</script>");
+            //req.getRequestDispatcher("pages/blog/blog_update.jsp").forward(req,resp);
         }
     }
+
+    protected void list(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        System.out.println("经过list");
+        //1、通过blogService查询全部帖子
+        List<Blog> blogs = blogService.queryBlogs();
+        //2、把全部帖子保存到request域中
+        req.setAttribute("blogs",blogs);
+//        测试用：
+//        List<Blog> test = (List<Blog>) req.getAttribute("blogs");
+//        for(Blog b:test)
+//        {
+//            System.out.println(b.getBlog_title());
+//        }
+        //3、请求转发到blog_home.jsp页面
+        req.getRequestDispatcher("/pages/home/blog_home.jsp").forward(req,resp);
+    }
+
+    protected  void delete(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        //1、获取请求的博客ID
+        String blog_id = req.getParameter("blog_id");
+        //2/调用blogService()方法
+        blogService.deleteBlog((Integer.valueOf(blog_id)));
+        //重定向
+        resp.sendRedirect(req.getContextPath()+"/blogServlet?action=list");
+    }
+
+    protected void section_list1(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        System.out.println("经过section_list");
+        String blog_section = req.getParameter("blog_section");
+        //1、通过blogService查询全部帖子
+        List<Blog> blogs = blogService.queryBlogsBySec(String.valueOf(blog_section));
+        //2、把全部帖子保存到request域中
+        req.setAttribute("blogs",blogs);
+        //3、请求转发到post_info.jsp页面
+        req.getRequestDispatcher("/pages/home/blog_study.jsp").forward(req,resp);
+    }
+
+    protected void section_list2(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        System.out.println("经过section_list");
+        String blog_section = req.getParameter("blog_section");
+        //1、通过blogService查询全部帖子
+        List<Blog> blogs = blogService.queryBlogsBySec(String.valueOf(blog_section));
+        //2、把全部帖子保存到request域中
+        req.setAttribute("blogs",blogs);
+        //3、请求转发到post_info.jsp页面
+        req.getRequestDispatcher("/pages/home/blog_life.jsp").forward(req,resp);
+    }
+
+    protected void section_list3(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        System.out.println("经过section_list");
+        String blog_section = req.getParameter("blog_section");
+        //1、通过blogService查询全部帖子
+        List<Blog> blogs = blogService.queryBlogsBySec(String.valueOf(blog_section));
+        //2、把全部帖子保存到request域中
+        req.setAttribute("blogs",blogs);
+        //3、请求转发到post_info.jsp页面
+        req.getRequestDispatcher("/pages/home/blog_work.jsp").forward(req,resp);
+    }
+
+
 }

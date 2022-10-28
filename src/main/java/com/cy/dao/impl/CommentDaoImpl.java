@@ -36,4 +36,10 @@ public class CommentDaoImpl extends BaseDao implements CommentDao {
         String sql = "select `comment_id`,`blog_id`,`user_id`,`comment_content`from comment ";
         return queryForList(Comment.class,sql);
     }
+
+    @Override
+    public List<Comment> queryCommentByBlogId(Integer blog_id) {
+        String sql = "select `comment_id`,`blog_id`,`user_id`,`comment_content`from comment where blog_id = ? ";
+        return queryForList(Comment.class,sql,blog_id);
+    }
 }

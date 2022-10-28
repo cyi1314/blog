@@ -5,6 +5,8 @@ import com.cy.dao.impl.CommentDaoImpl;
 import com.cy.pojo.Comment;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class CommentDaoImplTest {
 
     private CommentDao commentDao = new CommentDaoImpl();
@@ -24,5 +26,11 @@ public class CommentDaoImplTest {
     void queryComments(){
         for(Comment commentById :commentDao.queryComments())
             System.out.println(commentById);
+    }
+
+    @Test
+    void querycommentByBlogId (){
+        List<Comment> commentByBlogId =  commentDao.queryCommentByBlogId(2);
+        System.out.println(commentByBlogId);
     }
 }

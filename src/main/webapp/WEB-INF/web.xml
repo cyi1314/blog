@@ -44,4 +44,23 @@
     <url-pattern>/adminServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>blogServlet</servlet-name>
+    <servlet-class>com.cy.servlet.blogServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>blogServlet</servlet-name>
+    <url-pattern>/blogServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>userServlet</servlet-name>
+    <servlet-class>com.cy.servlet.userServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>userServlet</servlet-name>
+    <url-pattern>/userServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
